@@ -45,16 +45,26 @@ def levels(player, level_val):
             player.damage = player.damage + stat_val
             print("your damage is now", (player.damage))
 def level_check(player):
-    if player.exp >= 10:
-        levels(player, 1)
-    elif player.exp >= 30:
-        levels(player, 2)
-    elif player.exp >= 50:
-        levels(player, 3)
-    elif player.exp >= 70:
-        levels(player, 4)
-    elif player.exp >= 80:
-        levels(player, 5)
+    if player.level == 0:
+        if player.exp >= 10:
+            levels(player, 1)
+            player.level = player.level+1
+    elif player.level ==1:
+        if player.exp >= 30:
+            levels(player, 2)
+            player.level = player.level+1
+    elif player.level == 2:
+        if player.exp >= 50:
+            levels(player, 3)
+            player.level = player.level+1
+    elif player.level == 3:
+        if player.exp >= 70:
+            levels(player, 4)
+            player.level = player.level+1
+    elif player.level == 4:
+        if player.exp >= 80:
+            levels(player, 5)
+            player.level = player.level+1
     elif player.exp > 80:
         print("you are max level!")
 #Items
@@ -71,17 +81,18 @@ fooditems = {
 }
 #player class that allows me to keep track of data
 class Player:
-    def __init__(self, health, damage, exp, sp, max_health):
+    def __init__(self, health, damage, exp, sp, max_health, level):
         self.health = health
         self.damage = damage
         self.exp = exp
         self.sp = sp
         self.max_health = max_health
         self.inv = ["health potion", "health potion", "peanits"]
+        self.level = level
 #player attributes(if you wanna be stronger switch these around)
-player = Player(10, 2, 0, 0, 10)
+player = Player(10, 5, 0, 0, 10, 0)
 if admin:
-    player =  Player(100, 100, 0, 0, 100)
+    player =  Player(100, 100, 0, 0, 100, 100)
 
 #monster class that allows data to be kept track of
 class Monster:
@@ -161,6 +172,9 @@ def player_turn(monster):
                     print("You do not have a",(choice_item))
             else:
                 print("That item flat out doesnt exist")
+        elif option == "wait":
+            print("damn thats a lil cocky")
+            break
         else:
             print("thats not an option.")
 
@@ -203,16 +217,16 @@ def battle():
     golem = Monster(10,4, "golem", 30, "A golem lumbers forth")
     zombie = Monster(3, 3, "zombie", 5, "From the ground rises a zombie!")
     ghost = Monster(5, 2, "ghost", 10, "A ghost scares your dad")
-    choice = random.randint(1,3)
+    bella = Monster(10, 10, "Weird Ass Slime", 100, "bro that slime looks like someone I know...")
+    choice = random.randint(1,4)
     if choice == 1:
-        monster = zombie
-
-    if choice == 2:
         monster = golem
-
+    if choice == 2:
+        monster = zombie
     if choice == 3:
         monster = ghost
-        
+    if choice == 4:
+        monster = bella
 
     print(monster.encounter_message)
     diceroll = roll(20, "you rolled a")
