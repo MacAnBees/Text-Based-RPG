@@ -7,7 +7,7 @@ and remember, if you wanna edit FORK FORK FORK >:3 or ill send a golem after u
 Thanks to our playtesters:
 Peyton
 Bella as the slime
-John "The princess" Dare
+John "The princess" (last name hidden cuz this is public)
 '''
 print("How this game works: When the turn begins you roll a dice, if you roll a 10 or higher you go first, otherwie the monster goes first, when fighting, rolling an 8-17 or higher does your damage, rolling an 18 or higher does 2x damage, and rolling a 5-8 does half damage, 3-1 is a crit fail, when running, you need to roll more than half the monster's health, in your inventory, you have health potions, use the eat command on your turn and specifiy what you want to eat to use the health potion.")
 admin = True
