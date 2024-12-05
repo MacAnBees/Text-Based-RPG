@@ -241,7 +241,7 @@ class Player():
         self.exp_thr = exp_thr
         self.lvl = lvl
 player = Player(playername, no_weapon, no_armor,10, 3, 10, 0, ["base sword", "health potion"], [], 0, 20)
-if playername == "Yuri Durkin":
+if playername == "Bahk Lovach":
     print("Welcome back Yuri. Hope you are well.")
     print("")
     player = Player(playername, no_weapon, no_armor,100, 100, 100, 0, ["real knife"], [], 0, 10000, 100)
